@@ -1,24 +1,67 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| name               | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :rooms, through: :room_users
+- has_many :room_users
+- has_many :messages
+- has_many :favorites
 
-* Configuration
+## rooms テーブル
 
-* Database creation
+| Column   | Type    | Options     |
+| -------- | ------- | ----------- |
+| name     | string  | null: false |
+| genre_id | integer | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :users, through: :room_users
+- has_many :room_users
+- has_many :messages
 
-* Services (job queues, cache servers, search engines, etc.)
+## room_users テーブル
 
-* Deployment instructions
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| room   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :room
+- belongs_to :user
+
+## messages テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| room    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :room
+- belongs_to :user
+- has_many :favorites
+
+## favorites テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| message | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :message
+- belongs_to :user
