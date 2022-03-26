@@ -3,40 +3,65 @@
 }
 
 .side-bar {
-  background-color: limegreen;
+  background-color: forestgreen;
   width: 300px;
   height: 100vh;
 }
 .side-bar-header {
-  height: 100px;
+  height: 110px;
   padding: 0 20px;
+  background-color: forestgreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-name a{
+  font-size: 16px;
+  color: #FAFAFA;
+  text-decoration: none;
+}
+.create-room a {
+  font-size: 12px;
+  border: 1px solid blue;
+  padding: 14px;
+  color: blue;
+  text-decoration: none;
 }
 .rooms {
   background-color: #94e789;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 110px);
   padding: 0 20px;
+  overflow: scroll;
 }
+.room {
+  padding: 20px 0 40px;
+}
+.room-name a {
+  text-decoration: none;
+  color: black;
+}
+
 
 .chat {
   width: calc(100vw - 300px);
 }
 .category {
   display: flex;
-  background-color: #def59f;
-  height: 30px;
+  background-color: snow;
+  height: 35px;
 }
 .chat-header {
   background-color: #F0FFF0;
-  height: 70px;
+  height: 75px;
   padding: 0 40px;
 }
 .messages {
   background-color: white;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 115px - 80px);
   padding: 46px 40px 0;
 }
 .form {
   background-color: #F0FFF0;
-  height: 90px;
+  height: 80px;
   padding: 20px 40px;
 }
