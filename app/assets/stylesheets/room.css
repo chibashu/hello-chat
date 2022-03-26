@@ -18,11 +18,16 @@
 }
 
 .chat {
-  background-color: #F0FFF0;
   width: calc(100vw - 300px);
 }
+.category {
+  display: flex;
+  background-color: #def59f;
+  height: 30px;
+}
 .chat-header {
-  height: 100px;
+  background-color: #F0FFF0;
+  height: 70px;
   padding: 0 40px;
 }
 .messages {
