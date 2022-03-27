@@ -26,9 +26,17 @@
         <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
       </div>
     </div>
+    <div class='chat-room-form__field'>
+      <%= form_with model: @room, url:rooms_path, local: true do |f| %>
+        <div class='chat-room-form__field--left'>
+          <label class='chat-room-form__label' for='chat_room_チャットメンバー'>カテゴリー名</label>
+        </div>
+        <div class='chat-room-form__field--right'>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"}) %>
+        </div>
+      <% end %>
+    </div>
 
-    <#%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"})
-    
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'></div>
       <div class='chat-room-form__field--right'>
