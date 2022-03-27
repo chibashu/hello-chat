@@ -11,6 +11,7 @@
     </div>
     <div class='chat-room-form__field'>
     </div>
+    
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
         <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
@@ -18,6 +19,9 @@
       <div class='chat-room-form__field--right'>
       </div>
     </div>
+
+    <#%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"})
+    
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'></div>
       <div class='chat-room-form__field--right'>
